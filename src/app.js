@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 6000;
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://rozana-projects.online",
+  origin: process.env.FRONTEND_URL || "https://rozana-projects.online",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
