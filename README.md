@@ -48,18 +48,19 @@
 ## 📑 Table of Contents
 
 - [Overview](#-overview)
+- [Project Structure](#-project-structure)
 - [Tech Stack](#-tech-stack)
-- [AWS Infrastructure](#-aws-infrastructure)
-- [Architecture](#-architecture)
+- [AWS Infrastructure](#aws-infrastructure)
+- [Architecture](#architecture)
 - [API Endpoints](#-api-endpoints)
 - [Authentication & Authorization](#-authentication--authorization)
-- [Database Configuration](#-database-configuration)
+- [Database Configuration](#database-configuration)
 - [Docker Configuration](#-docker-configuration)
 - [Jenkins CI/CD Pipeline](#-jenkins-cicd-pipeline)
 - [Application Screenshots](#-application-screenshots)
 - [Future Improvements](#-future-improvements)
-- [Author](#-author)
-
+- [Author](#author)
+    
 ---
 
 ## 📖 Overview
@@ -67,6 +68,39 @@
 The Product Service is responsible for handling all product-related functionalities within the LUCCI e-commerce application. It exposes REST APIs that allow users to browse products while restricting product creation to authorized administrators.
 
 The service communicates with a PostgreSQL database hosted on Amazon RDS and is designed as an independent microservice, making it scalable and easy to maintain within the overall application architecture.
+
+---
+---
+
+## 📁 Project Structure
+
+```text
+product-service/
+│
+├── Assets/
+│   ├── Womens.png
+│   ├── Mens.png
+│   ├── Bags.png
+│   └── Jwellery.png
+│
+├── src/
+│   ├── controllers/
+│   │   └── product.controller.js
+│   ├── middleware/
+│   │   └── auth.middleware.js
+│   ├── routes/
+│   │   └── product.routes.js
+│   ├── app.js
+│   └── db.js
+│
+├── Dockerfile
+├── Jenkinsfile
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+The project follows a modular structure to keep routing, business logic, authentication, and database configuration separated. This organization improves maintainability, scalability, and makes it easier to add new features as the Product Service evolves.
 
 ---
 ## 🚀 Tech Stack
@@ -103,7 +137,8 @@ The service communicates with a PostgreSQL database hosted on Amazon RDS and is 
 - GitHub
 
 ---
-## ☁️ AWS Infrastructure
+
+## AWS Infrastructure 
 
 The Product Service is deployed on AWS using a containerized microservices architecture.
 
@@ -147,8 +182,8 @@ Amazon RDS PostgreSQL
 ```
 
 ---
-## 🏗️ Architecture
 
+## Architecture
 The Product Service follows a layered architecture to separate routing, business logic, authentication, and database access.
 
 ```
@@ -272,7 +307,7 @@ Authorization: Bearer <your_jwt_token>
 
 ---
 
-## 🗄️ Database Configuration
+## Database Configuration
 
 The Product Service stores product information in Amazon RDS PostgreSQL.
 
@@ -286,6 +321,42 @@ The application performs the following database operations:
 - Insert new products (Admin)
 
 The PostgreSQL connection uses SSL for secure communication with Amazon RDS.
+
+---
+
+## 🐳 Docker Configuration
+
+The Product Service is containerized using Docker for consistent deployment across environments.
+
+### Dockerfile
+
+```dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install --production
+
+COPY . .
+
+EXPOSE 6000
+
+CMD ["node", "src/app.js"]
+```
+
+### Build Docker Image
+
+```bash
+docker build -t product-service .
+```
+
+### Run Docker Container
+
+```bash
+docker run -p 6000:6000 product-service
+```
 
 ---
 
@@ -324,24 +395,6 @@ Amazon ECS
 Running Product Service
 ```
 
----
-
-## 🗄️ Database Configuration
-
-The Product Service stores product information in Amazon RDS PostgreSQL.
-
-Database connections are managed using the **pg** connection pool to provide efficient, scalable, and secure communication with the PostgreSQL database.
-
-The service performs the following operations:
-
-- Retrieve all products
-- Retrieve a product by ID
-- Retrieve products by category
-- Create new products (Admin only)
-
-SSL is enabled to securely connect to the Amazon RDS PostgreSQL instance.
-
----
 
 ## 📸 Application Screenshots
 
@@ -385,9 +438,7 @@ The Product Service can be extended with several additional features to improve 
 
 ---
 
-
-# 👩‍💻 Author
-
+## Author
 <div align="center">
 
 ## Rozana IM
@@ -414,7 +465,7 @@ It really helps and motivates me to build more cloud-native projects.
 
 <div align="center">
 
-## ☁️Built with Node.js • Express.js • PostgreSQL • Docker • Amazon ECS • Amazon ECR • Amazon RDS • Jenkins
+## ☁️ Built with Node.js • Express.js • PostgreSQL • Docker • Amazon ECS • Amazon ECR • Amazon RDS • Jenkins
 
 ### ❤️ Part of the LUCCI Cloud Native E-Commerce Platform
 
