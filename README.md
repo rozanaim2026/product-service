@@ -393,14 +393,39 @@ The Product Service can be extended with several additional features to improve 
 
 ---
 
-## 👩‍💻 Author
 
-**Rozana IM**
+# 👩‍💻 Author
 
-MCA Student | Cloud & DevOps Enthusiast
+<div align="center">
 
-This Product Service was developed as part of the LUCCI Microservices E-Commerce Platform using Node.js, Express.js, PostgreSQL, Docker, Jenkins, Amazon ECR, Amazon ECS (Fargate), and Amazon RDS.
+## Rozana IM
+
+Cloud Engineer • DevOps Engineer • AWS Enthusiast
+
+GitHub: https://github.com/rozanaim2026
+
+LinkedIn: https://www.linkedin.com/in/rozana-im-a63541302/
+
+</div>
 
 ---
+
+# ⭐ Support
+
+If you found this project helpful,
+
+please consider giving it a ⭐ on GitHub.
+
+It really helps and motivates me to build more cloud-native projects.
+
+---
+
+<div align="center">
+
+## ☁️ Built with Node.js • Express • Docker • Amazon ECS • Amazon ECR • Amazon RDS • Jenkins
+
+### ❤️ Part of the LUCCI Cloud Native E-Commerce Platform
+
+</div>
 
 
