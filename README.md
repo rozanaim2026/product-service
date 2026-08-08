@@ -1,8 +1,12 @@
+<div align="center">
+
 # 🛍️ LUCCI Product Service
 
 The **Product Service** is a backend microservice of the LUCCI e-commerce platform responsible for managing product-related operations. It provides RESTful APIs to retrieve products, filter products by category, fetch individual product details, and allow administrators to add new products.
 
 Built using **Node.js** and **Express.js**, the service stores product data in **Amazon RDS PostgreSQL** and is deployed as a Docker container on **Amazon ECS (Fargate)**. A Jenkins CI/CD pipeline automates the build, containerization, and deployment process using **Amazon ECR**.
+
+</div>
 
 ---
 
@@ -32,8 +36,6 @@ Built using **Node.js** and **Express.js**, the service stores product data in *
 - [Database Configuration](#-database-configuration)
 - [Docker Configuration](#-docker-configuration)
 - [Jenkins CI/CD Pipeline](#-jenkins-cicd-pipeline)
-- [Environment Variables](#-environment-variables)
-- [Running Locally](#-running-locally)
 - [Application Screenshots](#-application-screenshots)
 - [Future Improvements](#-future-improvements)
 - [Author](#-author)
@@ -97,23 +99,33 @@ The Product Service is deployed on AWS using a containerized microservices archi
 
 ### Deployment Flow
 
+```text
 Developer
-↓
+    │
+    ▼
 GitHub Repository
-↓
+    │
+    ▼
 Jenkins Pipeline
-↓
+    │
+    ▼
 Docker Image Build
-↓
+    │
+    ▼
 Amazon ECR
-↓
-Amazon ECS Service
-↓
+    │
+    ▼
+Amazon ECS (Fargate)
+    │
+    ▼
 Application Load Balancer
-↓
+    │
+    ▼
 Product Service API
-↓
+    │
+    ▼
 Amazon RDS PostgreSQL
+```
 
 ---
 ## 🏗️ Architecture
@@ -225,7 +237,7 @@ The Product Service uses JSON Web Tokens (JWT) to secure administrative operatio
 
 ### Protected Routes
 
-- Add new product
+- Create a new product (Admin only)
 
 ### Authorization Flow
 
@@ -237,8 +249,7 @@ The Product Service uses JSON Web Tokens (JWT) to secure administrative operatio
 Example header:
 
 ```http
-Authorization: Bearer <JWT Token>
-```
+Authorization: Bearer <your_jwt_token>```
 ---
 
 ## 🗄️ Database Configuration
@@ -291,7 +302,7 @@ docker build -t product-service .
 docker run -p 6000:6000 product-service
 ```
 
-The application listens on **Port 6000** inside the container.
+The Docker image exposes **port 6000**, which is mapped to the host during container execution.
 
 ---
 ## 🔄 Jenkins CI/CD Pipeline
@@ -310,27 +321,24 @@ The Product Service uses Jenkins to automate the build and deployment process.
 
 ### Deployment Flow
 
+```text
 GitHub
-
-↓
-
+   │
+   ▼
 Jenkins
-
-↓
-
+   │
+   ▼
 Docker Build
-
-↓
-
+   │
+   ▼
 Amazon ECR
-
-↓
-
+   │
+   ▼
 Amazon ECS
-
-↓
-
+   │
+   ▼
 Running Product Service
+```
 
 ---
 
@@ -338,16 +346,16 @@ Running Product Service
 
 The Product Service stores product information in Amazon RDS PostgreSQL.
 
-Connection pooling is implemented using the **pg** package to efficiently manage database connections.
+Database connections are managed using the **pg** connection pool to provide efficient, scalable, and secure communication with the PostgreSQL database.
 
-The application performs the following database operations:
+The service performs the following operations:
 
 - Retrieve all products
-- Retrieve product by ID
+- Retrieve a product by ID
 - Retrieve products by category
-- Insert new products (Admin)
+- Create new products (Admin only)
 
-The PostgreSQL connection uses SSL for secure communication with Amazon RDS.
+SSL is enabled to securely connect to the Amazon RDS PostgreSQL instance.
 
 ---
 
