@@ -70,7 +70,6 @@ The Product Service is responsible for handling all product-related functionalit
 The service communicates with a PostgreSQL database hosted on Amazon RDS and is designed as an independent microservice, making it scalable and easy to maintain within the overall application architecture.
 
 ---
----
 
 ## 📁 Project Structure
 
