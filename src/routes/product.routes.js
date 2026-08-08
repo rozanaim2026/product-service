@@ -12,10 +12,10 @@ router.get("/", productController.getProducts);
 // ✅ PUBLIC: Category products
 router.get("/category/:category", productController.getCategoryProducts);
 
+// ✅ HEALTH (must come before /:id)
+router.get("/health", (req,res)=>res.send("OK"));
+
 // ✅ PUBLIC: Single product
 router.get("/:id", productController.getProductById);
-
-// ✅ HEALTH
-router.get("/health", (req,res)=>res.send("OK"));
 
 module.exports = router;
