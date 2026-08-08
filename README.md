@@ -2,9 +2,29 @@
 
 # 🛍️ LUCCI Product Service
 
-The **Product Service** is a backend microservice of the LUCCI e-commerce platform responsible for managing product-related operations. It provides RESTful APIs to retrieve products, filter products by category, fetch individual product details, and allow administrators to add new products.
+### Product Management Microservice for the LUCCI Cloud Native E-Commerce Platform
 
-Built using **Node.js** and **Express.js**, the service stores product data in **Amazon RDS PostgreSQL** and is deployed as a Docker container on **Amazon ECS (Fargate)**. A Jenkins CI/CD pipeline automates the build, containerization, and deployment process using **Amazon ECR**.
+<br/>
+
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Amazon ECS](https://img.shields.io/badge/Amazon_ECS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/ecs/)
+[![Amazon ECR](https://img.shields.io/badge/Amazon_ECR-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/ecr/)
+[![Amazon RDS](https://img.shields.io/badge/Amazon_RDS-527FFF?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/rds/)
+[![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)](https://www.jenkins.io/)
+
+<br/>
+
+> Built using **Node.js + Express.js + PostgreSQL**
+
+> Containerized using **Docker**
+
+> Automated deployment using **Jenkins + Amazon ECR + Amazon ECS (Fargate)**
+
+> Manages product catalog operations, including product retrieval, category filtering, and administrator product management for the LUCCI platform.
+
 
 </div>
 
@@ -83,7 +103,6 @@ The service communicates with a PostgreSQL database hosted on Amazon RDS and is 
 - GitHub
 
 ---
-
 ## ☁️ AWS Infrastructure
 
 The Product Service is deployed on AWS using a containerized microservices architecture.
@@ -247,9 +266,10 @@ The Product Service uses JSON Web Tokens (JWT) to secure administrative operatio
 4. Only users with the `admin` role can create products.
 
 Example header:
-
 ```http
-Authorization: Bearer <your_jwt_token>```
+Authorization: Bearer <your_jwt_token>
+```
+
 ---
 
 ## 🗄️ Database Configuration
@@ -268,43 +288,7 @@ The application performs the following database operations:
 The PostgreSQL connection uses SSL for secure communication with Amazon RDS.
 
 ---
-## 🐳 Docker Configuration
 
-The Product Service is containerized using Docker for consistent deployment across environments.
-
-### Dockerfile
-
-```dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm install --production
-
-COPY . .
-
-EXPOSE 6000
-
-CMD ["node", "src/app.js"]
-```
-
-### Docker Build
-
-```bash
-docker build -t product-service .
-```
-
-### Run Container
-
-```bash
-docker run -p 6000:6000 product-service
-```
-
-The Docker image exposes **port 6000**, which is mapped to the host during container execution.
-
----
 ## 🔄 Jenkins CI/CD Pipeline
 
 The Product Service uses Jenkins to automate the build and deployment process.
@@ -430,7 +414,7 @@ It really helps and motivates me to build more cloud-native projects.
 
 <div align="center">
 
-## ☁️ Built with Node.js • Express • Docker • Amazon ECS • Amazon ECR • Amazon RDS • Jenkins
+## ☁️Built with Node.js • Express.js • PostgreSQL • Docker • Amazon ECS • Amazon ECR • Amazon RDS • Jenkins
 
 ### ❤️ Part of the LUCCI Cloud Native E-Commerce Platform
 
