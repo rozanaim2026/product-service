@@ -595,13 +595,6 @@ please consider giving it a ⭐ on GitHub.
 It really helps and motivates me to build more cloud-native projects.
 
 ---
-
-# 📄 License
-
-This project is part of the **LUCCI Cloud Native E-Commerce Platform** and is intended for learning, portfolio, and demonstration purposes.
-
----
-
 <div align="center">
 
 ## ☁️ Built with Node.js • Express.js • MySQL • Docker • Amazon ECS • Amazon ECR • Amazon RDS • Jenkins
