@@ -22,6 +22,13 @@
 
 > Manages product catalog operations including product retrieval, category filtering, product creation, and secure administrator access for the LUCCI e-commerce platform.
 
+<br/>
+
+### 🔗 [Live Application](https://frontend-aws-devops-1.vercel.app)
+
+This service powers part of the live LUCCI application above — see the link for the full working demo.
+
+
 </div>
 
 ---
@@ -40,7 +47,7 @@
 - Render free-tier deployment
 - Secure API endpoints
 - Cloud-native microservice architecture
-
+  
 ---
 
 # 📑 Table of Contents
@@ -455,6 +462,13 @@ LinkedIn: https://www.linkedin.com/in/rozana-im-a63541302/
 If you found this project helpful, please consider giving it a ⭐ on GitHub. It really helps and motivates me to build more cloud-native projects.
 
 ---
+
+# 📄 License
+
+This project is part of the **LUCCI Cloud Native E-Commerce Platform** and is intended for learning, portfolio, and demonstration purposes.
+
+---
+
 <div align="center">
 
 ## ☁️ Built with Node.js • Express.js • PostgreSQL • Docker • Render • Aiven
